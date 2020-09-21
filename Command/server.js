@@ -1,5 +1,4 @@
 const app = require("./src/app");
-const { DB_URI } = require("./src/config/index");
 
 
 app.listen(3000, () => {
