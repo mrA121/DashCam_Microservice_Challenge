@@ -1,7 +1,7 @@
 version: '3'
 services:
   alarms:
-    build: './alarms'
+    build: './Alarms'
     ports:
       - "3000:3000"
     depends_on:
@@ -10,12 +10,12 @@ services:
       - MONGO_DB_URI= mongodb://db/microservices
 
   commands:
-    build: './commands'
+    build: './Command'
     ports:
       - "3001:3000"
   
   videos:
-    build: './videos'
+    build: './Videos'
     ports:
       - "3002:3000"
     depends_on:
