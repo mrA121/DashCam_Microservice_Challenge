@@ -16,5 +16,5 @@ app.use((error, req, res, next) => {
     res.status(status).json({ message: message, data: data });
   });
 
-let port=8081
-app.listen(port,()=>console.log(`Server started on the port${port}`))
+const PORT=3001
+app.listen(PORT,()=>console.log(`Server started on the port${port}`))

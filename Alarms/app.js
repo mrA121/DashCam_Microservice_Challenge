@@ -2,8 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const alarmRoutes =require('./routes/alarms')
-const locationRoutes =require('./routes/location')
+const {DB_URI} =require('./src/utils/mongo_db')
+const alarmRoutes =require('./src/routes/alarms')
+const locationRoutes =require('./src/routes/location')
 
 const app = express();
 
@@ -22,10 +23,8 @@ app.use((error, req, res, next) => {
   });
 
 mongoose
-  .connect(
-      'mongodb+srv://alarm:1234qwer1@cluster0.xnumo.mongodb.net/test?retryWrites=true&w=majority'
-  )
+  .connect(DB_URI)
   .then(result => {
-    app.listen(8080);
+    app.listen(3000);
   })
   .catch(err => console.log(err));
