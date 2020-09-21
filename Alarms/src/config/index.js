@@ -1,10 +1,6 @@
-let DB_URI="mongodb://localhost:27017/microservices"
+let DB_URI="mongodb+srv://alarm:alarm123@cluster0.xnumo.mongodb.net/microservices?retryWrites=true&w=majority"
 
-if (process.env.MONGO_DB_URI){
-    DB_URI=process.env.MONGO_DB_URI
-}
-
-SECRET_KEY='some_secret_secret';
+let SECRET_KEY='some_secret_secret';
 
 module.exports={
     DB_URI,

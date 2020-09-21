@@ -4,10 +4,6 @@ services:
     build: './Alarms'
     ports:
       - "3000:3000"
-    depends_on:
-      - db
-    environment:
-      - MONGO_DB_URI= mongodb://db/microservices
 
   commands:
     build: './Command'
@@ -18,17 +14,8 @@ services:
     build: './Videos'
     ports:
       - "3002:3000"
-    depends_on:
-      - db
-    environment:
-      - MONGO_DB_URI= mongodb://db/microservices
     volumes:
       - ./videos:/videos
-    
-  db:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
 
   nginx:
     image: nginx:latest
