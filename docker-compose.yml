@@ -34,7 +34,7 @@ services:
     image: nginx:latest
     ports:
       - "8080:8080"
-    depends-on:
+    depends_on:
       - alarms
       - commands
       - videos
