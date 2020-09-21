@@ -26,7 +26,7 @@ const fileFilter = (req, file, cb) => {
 app.use(bodyParser.json()); 
 
 app.use(
-    multer({storage:fileStorage,fileFilter:fileFilter}).single('video')
+    multer({storage:fileStorage,fileFilter:fileFilter}).single('data')
     )
 
 app.use("api/video",videoRoutes)
