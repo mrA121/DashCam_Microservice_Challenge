@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const {SECRET_KEY}=require('../config/index')
 
 exports.command=(req,res,next)=>{
-    res.status(200).json({type: 'COMMAND_RESPONSE',response: 'OK/Failure'})
+    res.status(200).json({type: 'COMMAND_RESPONSE',response: 'Failure'})
 }
 
 
