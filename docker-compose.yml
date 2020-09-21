@@ -2,7 +2,7 @@ version: '3'
 services:
   alarms:
     build: './alarms'
-    port:
+    ports:
       - "3000:3000"
     depends_on:
       - db
@@ -11,12 +11,12 @@ services:
 
   commands:
     build: './commands'
-    port:
+    ports:
       - "3001:3000"
   
   videos:
     build: './videos'
-    port:
+    ports:
       - "3002:3000"
     depends_on:
       - db
