@@ -1,0 +1,44 @@
+version: '3'
+services:
+  alarms:
+    build: './alarms'
+    port:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - MONGO_DB_URI= mongodb://db/microservices
+
+  commands:
+    build: './commands'
+    port:
+      - "3001:3000"
+  
+  videos:
+    build: './videos'
+    port:
+      - "3002:3000"
+    depends_on:
+      - db
+    environment:
+      - MONGO_DB_URI= mongodb://db/microservices
+    volumes:
+      - ./videos:/videos
+    
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    depends-on:
+      - alarms
+      - commands
+      - videos
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+
+  

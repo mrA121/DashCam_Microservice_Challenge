@@ -1,10 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const multer = require('multer');
 
-const videoRoutes= require('./src/routes/video');
-const {DB_URI}= require('./src/routes/mongo_db')
+const videoRoutes= require('./routes/video');
 
 const app = express();
 
@@ -31,7 +29,7 @@ app.use(
     multer({storage:fileStorage,fileFilter:fileFilter}).single('video')
     )
 
-app.use("/videos",videoRoutes)
+app.use("api/video",videoRoutes)
 
 app.use((error, req, res, next) => {
     console.log(error);
@@ -40,9 +38,5 @@ app.use((error, req, res, next) => {
     const data = error.data;
     res.status(status).json({ message: message, data: data });
   });
-mongoose
-  .connect(DB_URI)
-  .then(result => {
-    app.listen(3002);
-  })
-  .catch(err => console.log(err));
+
+module.exports=app;

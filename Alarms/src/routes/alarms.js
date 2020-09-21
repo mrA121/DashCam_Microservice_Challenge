@@ -1,7 +1,7 @@
 const express= require('express');
 
 const isAuth= require('../middleware/is-auth')
-const Alarm= require('../models/alarms')
+
 const alarmController = require('../controllers/alarms')
 
 const router = express.Router();

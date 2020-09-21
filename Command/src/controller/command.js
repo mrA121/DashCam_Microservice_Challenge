@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const SECRET_KEY=require('../utils/secret_key')
+const {SECRET_KEY}=require('../config/index')
 exports.command=(req,res,next)=>{
     
 }
