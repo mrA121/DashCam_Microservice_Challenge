@@ -130,7 +130,6 @@ Content-Length: xy
 HTTP/1.1 401 Unauthorized
 Server: nginx/1.19.2
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiTE9HSU4iLCJpbWVpIjoiMTIzNDU2NzgiLCJpYXQiOjE2MDA3NjExMDEsImV4cCI6MTYwMDc2NDcwMX0.k_xA7rlkOQve1DkvgbLh13zWO1jqGnR048RI_o2dtMc
 Content-Length: xy
 {
     "message": "invalid token"
@@ -141,7 +140,6 @@ or
 HTTP/1.1 422 Unprocessable Entity
 Server: nginx/1.19.2
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiTE9HSU4iLCJpbWVpIjoiMTIzNDU2NzgiLCJpYXQiOjE2MDA3NjExMDEsImV4cCI6MTYwMDc2NDcwMX0.k_xA7rlkOQve1DkvgbLh13zWO1jqGnR048RI_o2dtMc
 Content-Length: xy
 {
     "message": "Not a Valid Location Request."
@@ -191,7 +189,6 @@ Content-Length: xy
 HTTP/1.1 401 Unauthorized
 Server: nginx/1.19.2
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiTE9HSU4iLCJpbWVpIjoiMTIzNDU2NzgiLCJpYXQiOjE2MDA3NjExMDEsImV4cCI6MTYwMDc2NDcwMX0.k_xA7rlkOQve1DkvgbLh13zWO1jqGnR048RI_o2dtMc
 Content-Length: xy
 {
     "message": "invalid token"
@@ -245,7 +242,6 @@ Content-Length: xy
 HTTP/1.1 401 Unauthorized
 Server: nginx/1.19.2
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiTE9HSU4iLCJpbWVpIjoiMTIzNDU2NzgiLCJpYXQiOjE2MDA3NjExMDEsImV4cCI6MTYwMDc2NDcwMX0.k_xA7rlkOQve1DkvgbLh13zWO1jqGnR048RI_o2dtMc
 Content-Length: xy
 {
     "message": "invalid token"
@@ -256,7 +252,6 @@ or
 HTTP/1.1 422 Unprocessable Entity
 Server: nginx/1.19.2
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiTE9HSU4iLCJpbWVpIjoiMTIzNDU2NzgiLCJpYXQiOjE2MDA3NjExMDEsImV4cCI6MTYwMDc2NDcwMX0.k_xA7rlkOQve1DkvgbLh13zWO1jqGnR048RI_o2dtMc
 Content-Length: xy
 {
     "message": "Not a Valid Alarm Request."
@@ -302,7 +297,6 @@ Content-Length: xy
 HTTP/1.1 401 Unauthorized
 Server: nginx/1.19.2
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiTE9HSU4iLCJpbWVpIjoiMTIzNDU2NzgiLCJpYXQiOjE2MDA3NjExMDEsImV4cCI6MTYwMDc2NDcwMX0.k_xA7rlkOQve1DkvgbLh13zWO1jqGnR048RI_o2dtMc
 Content-Length: xy
 {
     "message": "invalid token"
@@ -348,7 +342,6 @@ Content-Length: xy
 HTTP/1.1 401 Unauthorized
 Server: nginx/1.19.2
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiTE9HSU4iLCJpbWVpIjoiMTIzNDU2NzgiLCJpYXQiOjE2MDA3NjExMDEsImV4cCI6MTYwMDc2NDcwMX0.k_xA7rlkOQve1DkvgbLh13zWO1jqGnR048RI_o2dtMc
 Content-Length: xy
 {
     "message": "invalid token"
@@ -371,10 +364,53 @@ Content-Length: xy
 
 ```
 #### Successful Response:
+```
+HTTP/1.1 200 OK
+Server: nginx/1.19.2
+Content-Type: application/json
+Content-Length: xy
+{
+    "message": "Viedo saved successfully!",
+    "video": {
+        "_id": "5f69e5373a5e940013a764c6",
+        "imei": 12345678,
+        "filename": "2020-09-22T11:51:19.252Z-SampleVideo_1280x720_1mb.mp4",
+        "filepath": "/src/src/videos/2020-09-22T11:51:19.252Z-SampleVideo_1280x720_1mb.mp4",
+        "__v": 0
+    }
+}
+```
 #### Failed Response:
+```
+HTTP/1.1 422 Unprocessable Entity
+Server: nginx/1.19.2
+Content-Type: application/json
+Content-Length: xy
+{
+    "message": "Invalid File."
+}
+```
 
 ### Get Video
-
 #### Request:
+```
+GET /api/video/v1 HTTP/1.1
+Accept: application/json
+Content-Type: multipart/form-data
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiTE9HSU4iLCJpbWVpIjoiMTIzNDU2NzgiLCJpYXQiOjE2MDA3NzU3OTQsImV4cCI6MTYwMTM4MDU5NH0.g34dZDsswxK4raxvjvziabFHLjEQZWFBOu5LcdHDcR0
+```
 #### Successful Response:
+```
+Returns a zip file of all the videos clips for the given imei
+```
+#### Failed Response:
+```
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.19.2
+Content-Type: application/json
+Content-Length: xy
+{
+    "message": "invalid token"
+}
+```
 
