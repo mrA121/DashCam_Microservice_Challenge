@@ -89,34 +89,6 @@ Content-Length: xy
 }
 ```
 
-### DashCam Command 
-
-#### Request:
-```
-POST /api/command/v1 HTTP/1.1
-Accept: application/json
-Content-Type: application/json
-Content-Length: xy
-{
-    "type": "COMMAND",
-    "imei": 12345678,
-    "command": "some_command_string"
-}
-```
-
-#### Successful Response:
-```
-HTTP/1.1 200 OK
-Server: nginx/1.19.2
-Content-Type: application/json
-Content-Length: xy
-{
-    "type": 'COMMAND_RESPONSE',
-    "response": 'Failure'
-}
-```
-
-
 ### Post Location
 
 #### Request:
@@ -386,6 +358,18 @@ Content-Length: xy
 ### Post Video
 
 #### Request:
+```
+POST /api/video/v1 HTTP/1.1
+Accept: application/json
+Content-Type: multipart/form-data
+Content-Length: xy
+{
+    'imei':1234567
+    'filename':'video_file.mp4'
+    'video':video_file
+}
+
+```
 #### Successful Response:
 #### Failed Response:
 
@@ -393,4 +377,4 @@ Content-Length: xy
 
 #### Request:
 #### Successful Response:
-#### Failed Response:
+
