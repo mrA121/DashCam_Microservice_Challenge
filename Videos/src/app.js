@@ -8,7 +8,7 @@ const app = express();
 
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, './src/videos');
+      cb(null, './videos');
     },
     filename: (req, file, cb) => {
         req.filename=new Date().toISOString() + '-' + file.originalname
