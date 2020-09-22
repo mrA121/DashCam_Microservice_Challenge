@@ -14,9 +14,11 @@
 
 #### Tools and Technologies Used:-
 1. Nginx- API Gateway to act as reverse proxy engine and route requests to individual microservices
-2. MongoDB- Backed Database 
+2. MongoDB- Backend Database 
 3. Web Framework- Express.JS
 4. Authenctication Mechanism:- Json Web Tokenization
+5. Docker:- Containeristaion
+6. Docker-Compose:- Container Orchestration
 
 
 #### Ideally our services should have seperate databases but for the sake of simplicity we have got only one backend server.
