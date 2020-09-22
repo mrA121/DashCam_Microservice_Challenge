@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 const multer = require('multer');
+
 
 const videoRoutes= require('./routes/video');
 
@@ -8,7 +10,7 @@ const app = express();
 
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, './videos');
+      cb(null, path.join(__dirname,'/videos'));
     },
     filename: (req, file, cb) => {
         req.filename=new Date().toISOString() + '-' + file.originalname
