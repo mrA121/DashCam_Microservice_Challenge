@@ -21,7 +21,7 @@ exports.get_token=(req,res,next)=>{
           imei: imei
         },
         SECRET_KEY,
-        { expiresIn: '1h' }
+        { expiresIn: '7d' }
       );
     res.status(200).json({ token: token});
 }
