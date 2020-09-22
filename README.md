@@ -22,6 +22,10 @@
 #### Ideally our services should have seperate databases but for the sake of simplicity we have got only one backend server.
 
 ## API End Points
+
+### Get Token
+
+#### Request:
 ```
 POST /api/command/get_token/v1 HTTP/1.1
 Accept: application/json
@@ -33,37 +37,57 @@ Content-Length: xy
 }
 ```
 
-
+#### Successful Response:
 ```
-POST - /api/command
-```
-
-```
-POST - /api/location
-```
-
-```
-POST - /api/alarm/v1
-```
-
-```
-GET - /api/alarm/v1
+POST /api/command/get_token/v1 HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Content-Length: xy
+{
+    "type": "LOGIN",
+    "imei": "12345678" 
+}
 ```
 
+### Failed Response
 ```
-GET - /api/alarm/v2
+HTTP/1.1 401 Unauthorized
+Server: My RESTful API
+Content-Type: application/json
+Content-Length: xy
+
+{
+    "code": 120,
+    "message": "invalid crendetials",
+    "resolve": "The username or password is not correct."
+}
 ```
 
+### Pass Command 
+
+#### Request:
 ```
-POST - /api/video/v1
+POST /api/command/get_token/v1 HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Content-Length: xy
+{
+    "type": "LOGIN",
+    "imei": "12345678" 
+}
 ```
 
+#### Successful Response:
 ```
-GET - /api/video/v1
+POST /api/command/get_token/v1 HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Content-Length: xy
+{
+    "type": "LOGIN",
+    "imei": "12345678" 
+}
 ```
-
-
-
 
 
 
