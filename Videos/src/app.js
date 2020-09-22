@@ -14,7 +14,7 @@ const fileStorage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         req.filename=new Date().toISOString() + '-' + file.originalname
-      cb(null, req.filename);
+        cb(null, req.filename);
     }
   });
 const fileFilter = (req, file, cb) => {
@@ -31,7 +31,7 @@ app.use(
     multer({storage:fileStorage,fileFilter:fileFilter}).single('video')
     )
 
-app.use("api/video",videoRoutes)
+app.use("/api/video",videoRoutes)
 
 app.use((error, req, res, next) => {
     console.log(error);
@@ -42,3 +42,4 @@ app.use((error, req, res, next) => {
   });
 
 module.exports=app;
+
